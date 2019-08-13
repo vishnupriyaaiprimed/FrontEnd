@@ -24,6 +24,7 @@ export class PayComponent implements OnInit {
   num: string;
   bill: any;
   det: any;
+  plan:any;
 
   credit : any;
   bank : any;
@@ -60,6 +61,15 @@ export class PayComponent implements OnInit {
         // console.log(this.bill);
       });
     }
+    else if(this.page=='newcon')
+    {
+      this.det=this.apiService.getDet();
+      console.log(this.det);
+      
+      //this.apiService.addToCustomers(this.det).subscribe(data=>(true));
+      
+    }
+    this.apiService.changeAmt('0');
   }
 
   ngOnInit() {

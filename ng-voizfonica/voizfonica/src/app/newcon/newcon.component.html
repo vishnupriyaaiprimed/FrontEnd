@@ -87,25 +87,13 @@
 
         </div>
 
-        <select *ngIf="preposdon_var=='Prepaid'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+
+        <div *ngIf="preposdon_var=='Prepaid'">
+        <select class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
           #selectplan="ngModel" required>
-          <option [ngValue]="none" disabled>Select a plan</option>
-          <option *ngFor="let p of plans1" [ngValue]="p">{{p}}</option>
+          <option [ngValue]="none3" disabled>Select a plan</option>
+          <option *ngFor="let p of plans1" [ngValue]="p">{{p.plan_name}}</option>
         </select>
-
-        <select *ngIf="preposdon_var=='Postpaid'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
-          #selectplan="ngModel" required>
-          <option [ngValue]="none" disabled>Select a plan</option>
-          <option *ngFor="let p of plans2" [ngValue]="p">{{p}}</option>
-        </select>
-
-        <select *ngIf="preposdon_var=='Dongle'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
-          #selectplan="ngModel" required>
-          <option [ngValue]="none" disabled>Select a plan</option>
-          <option *ngFor="let p of plans3" [ngValue]="p">{{p}}</option>
-        </select>
-
-
         <div *ngIf="selectplan.invalid && (selectplan.touched || isBtnClicked)" class="text-danger">
 
           <div *ngIf="selectplan.errors.required">
@@ -113,6 +101,39 @@
           </div>
 
         </div>
+        </div>
+
+        <div *ngIf="preposdon_var=='Postpaid'">
+          <select class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+            #selectplan="ngModel" required>
+            <option [ngValue]="none1" disabled>Select a plan</option>
+            <option *ngFor="let p of plans2" [ngValue]="p">{{p.plan_name}}</option>
+          </select>
+          <div *ngIf="selectplan.invalid && (selectplan.touched || isBtnClicked)" class="text-danger">
+  
+            <div *ngIf="selectplan.errors.required">
+              Select a plan
+            </div>
+  
+          </div>
+          </div>
+
+          <div *ngIf="preposdon_var=='Dongle'">
+            <select class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+              #selectplan="ngModel" required>
+              <option [ngValue]="none2" disabled>Select a plan</option>
+              <option *ngFor="let p of plans3" [ngValue]="p">{{p.plan_name}}</option>
+            </select>
+            <div *ngIf="selectplan.invalid && (selectplan.touched || isBtnClicked)" class="text-danger">
+    
+              <div *ngIf="selectplan.errors.required">
+                Select a plan
+              </div>
+    
+            </div>
+            </div>
+
+
 
         <div class="input-group mb-3 kyc">
           <div class="input-group-prepend">

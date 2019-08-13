@@ -73,6 +73,32 @@ export class ApiService {
     // console.log(localStorage.getItem("prevpage"));
   }
 
+  private plan='';
+  getPlan()
+  {
+    // console.log(localStorage.getItem("prevpage"));
+    return localStorage.getItem("plan");
+  }
+  changePlan(p)
+  {
+    this.plan=p;
+    localStorage.setItem("plan",this.plan);
+    // console.log(localStorage.getItem("prevpage"));
+  }
+
+  private det;
+  getDet()
+  {
+    // console.log(localStorage.getItem("prevpage"));
+    return localStorage.getItem("det");
+  }
+  changeDet(d)
+  {
+    this.det=d;
+    localStorage.setItem("det",this.det);
+    // console.log(localStorage.getItem("prevpage"));
+  }
+
 
   logout()
   {
@@ -240,6 +266,12 @@ export class ApiService {
     return this.http.get(this.baseUrl + "dongle/", {
       headers: this.httpHeaders
     });
+  }
+
+  getPlanAmount(link,id):Observable<any>{
+    return this.http.get(this.baseUrl + link + "/" + id + "/",
+    {headers:this.httpHeaders}
+     );
   }
 
   // getOnlineUsers():Observable<any>
