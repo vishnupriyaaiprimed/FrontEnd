@@ -1,0 +1,33 @@
+<div class="container-fluid jumb text-center">
+	<h1 class="display-4">REPORT A PROBLEM</h1>
+</div>
+<div class="container-fluid  jumb1 text-center">
+	<a routerLink="/faq"><button class="btn1">FAQ's</button></a><br><br>
+	<div class="row">
+		<div class="col-md-8">
+			MY PROBLEM<br>
+			<textarea name="complaint1" [(ngModel)]="complaint_var" #complaint="ngModel" class="form-control"
+				style="width: 90%; height: 60%;"></textarea>
+
+		</div>
+		<div class="col-md-4 text-center" style="text-align: bottom;padding:6%">
+			<button class="btn btn-info" (click)="register()" data-toggle="modal" data-target="#myModal">Register complaint</button>
+		</div>
+
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<span style="font-size:18pt">Your complaint has been registered</span>
+						<br />
+						<a routerLink="">
+							<button type="button" class="btn btn-info" data-dismiss="modal" style="margin-top:4%">
+								OK
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>

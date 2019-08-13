@@ -1,0 +1,39 @@
+<div *ngIf="number!='0'">
+  <div class="container-fluid jumb">
+    <h1 class="display-4">RECHARGE</h1>
+  </div>
+  <form>
+    <div class="container-fluid text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="../assets/images/recharge.gif" class="hide">
+        </div>
+        <div class="col-md-8">
+          <div class="blueoutline">
+            <table>
+              <tr>
+                <th>Mobile Number</th>
+                <th class="nopad">:</th>
+                <td>{{ number }}</td>
+              </tr>
+              <tr>
+                <th>Your recharge amount is</th>
+                <th class="nopad">:</th>
+                <td><input type="number" name="name1" [(ngModel)]="amount" #name="ngModel" class="form-control" /></td>
+              </tr>
+              <tr>
+                <td colspan="3"><a routerLink="/pay"><button class="btn btn-info" (click)="func()">Pay</button></a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+<div *ngIf="number=='0'" class="container text-center display-4" style="margin-top:12%">
+  Please login to view this page
+</div>

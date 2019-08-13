@@ -1,0 +1,192 @@
+<div *ngIf="num!='0'">
+
+<div class="container-fluid jumb">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-horizontal">
+         
+          <div class="card-body" style="text-align: left;">
+            <label><h5>Vishnu priya</h5></label><br />
+            <label><h5>9095487632</h5></label><br />
+            <label><h5>Prepaid</h5></label>
+            
+          </div>
+          <div class="card-body" style="padding: 35px;">
+            <label><h4>Balance</h4></label><br />
+            <label><h4>$0.00</h4></label><br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <a routerLink="/recharge">
+        <button class="btn">
+          <h4>Recharge<br />Now</h4>
+        </button></a
+      >
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/report">
+        <button class="btn">
+          <h4>Report a<br />Problem</h4>
+        </button></a
+      >
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/plans">
+        <button class="btn">
+          <h4>View<br />Plans</h4>
+        </button></a
+      >
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+<br /><br />
+
+<div class="container-fluid">
+  <div class="row" style="padding: 20px;">
+    <div class="col-md-4 text-center">
+      <div class="container">
+        <font size="5">Your present pack :</font><br />
+        <label>Info</label><br />
+        <font size="5">Expires :</font>
+        <label>5</label>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapse1"
+                ><button
+                  class="btn btn-outline-primary collap"
+                  style="width: 100%;"
+                >
+                  Calls usage
+                </button></a
+              >
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <th></th>
+                  <th>Phone no</th>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>9092856412</td>
+                  <td>10/02/19</td>
+                  <td>10min</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapse2"
+                ><button class="btn btn-outline-primary" style="width: 100%;">
+                  Data usage
+                </button></a
+              >
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <th></th>
+                  <th>data usage</th>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>10mb</td>
+                  <td>10/02/19</td>
+                  <td>10min</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapse3"
+                ><button class="btn btn-outline-primary" style="width: 100%;">
+                  SMS usage
+                </button></a
+              >
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <th></th>
+                  <th>Phone no</th>
+                  <th>Date</th>
+                  <th>quantity</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>9092856412</td>
+                  <td>10/02/19</td>
+                  <td>10</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div *ngIf="num=='0'" class="container text-center display-4" style="margin-top:12%">
+  Please login to view this page
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>

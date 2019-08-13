@@ -1,0 +1,130 @@
+/* Carousel */
+
+.container-fluid
+{
+    padding:0;
+}
+
+/* Blur image */
+.bg
+{
+    /* position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:rgba(163, 159, 153, 0.4); */
+}
+
+/* Center Image */
+img
+{    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+/* Adjust Image height */
+@media (min-width: 200px) {
+    .carousel-item>img {
+        height: 140px;
+    }
+}
+
+@media (min-width: 300px) {
+    .carousel-item>img {
+        height: 160px;
+    }
+}
+
+@media (min-width: 600px) {
+    .carousel-item>img {
+        height: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .carousel-item>img {
+        height: 500px;
+    }
+}
+
+/* About Us */
+.aboutus
+{
+    background: rgba(187,187,187,0.4);
+    padding:2% 7% 3% 7%;
+}
+
+p
+{
+    text-indent: 4%;
+}
+
+dl
+{
+    box-shadow: #999 10px 10px 10px;
+}
+
+dt
+{
+    text-align: center;
+    text-transform: uppercase;
+    background: #0a5592;
+    color: #0a5592;
+    cursor:default;
+    font-size: 3pt;
+    font-weight: normal;
+}
+
+.heading
+{
+    font-size:25pt;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+dd
+{
+    padding: 3% 7%;
+}
+
+dd ul li
+{
+    text-indent: 6%;
+}
+
+dd ul li span
+{
+    position: relative;
+    left:-4%;
+}
+
+/* Contact Us */
+.row
+{
+    text-align: center;
+    color:white;
+    font-size: 15pt;
+}
+
+.row div
+{
+    padding: 3% 0%;
+    cursor:pointer;
+}
+
+.fas,.far
+{
+    font-size: 40pt;
+    margin-bottom: 5%;
+}
+
+.bluebtn
+{
+    background: #007BFF; 
+    border-width: 1px;
+    border-color:white;
+    border-style: solid;
+    cursor:default !important;
+}

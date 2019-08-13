@@ -1,0 +1,46 @@
+.jumb
+    {
+        margin:0;
+        background-color: #437ba8;
+  color:rgb(229, 233, 236);
+        padding:3%;
+        text-align:center;  
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+      }
+    
+.jumb1
+{
+  padding:6%;
+  text-align:center;
+}
+
+.row
+{
+  padding:2% 0 10% 0;
+  text-align:center;
+}
+.btn1
+{
+  outline:none;
+  border:none;
+  width:90%; 
+  min-height: 25%;  
+  min-width:80px;
+  margin-left:4%;
+  padding:1% 2%;
+  margin-top:0;
+  margin-bottom:3%;
+  box-shadow: 0 13px 10px 0 rgba(0,0,0,0.3);
+  /* background-color:  #117A8B; */
+  background-color:rgb(162, 216, 235);
+}
+.container
+{
+  padding:0%;
+}
+
+.btn{
+  background-color: #0f7cd6;
+  border: none;
+  color: white;
+}

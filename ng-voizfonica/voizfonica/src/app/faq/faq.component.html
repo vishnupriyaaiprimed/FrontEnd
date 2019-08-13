@@ -1,0 +1,38 @@
+<div class="container-fluid jumb text-center">
+  <h1 class="display-4"> FAQ's</h1>
+     
+    </div>
+    <div class="container-fluid jumb1">
+        <div *ngFor="let f of faqs">
+            <a class="btn btn-info" data-toggle="collapse" [href]="'#collapse'+f.id" style="width: 100%;">
+              {{f.q}}</a>
+            <div [id]="'collapse'+f.id" class="collapse bg-light">
+              {{f.a}}
+            </div>
+          </div>
+    <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" style="width: 100%;">How do I migrate from prepaid to postpaid?</button>
+    <div id="demo" class="collapse bg-light">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1" style="width: 100%;">How can I view the payment receipt?</button>
+    <div id="demo1" class="collapse bg-light">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2" style="width: 100%;">How can I view my current plan?  </button>
+    <div id="demo2" class="collapse bg-light">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3" style="width: 100%;">What is the procedure to create a new connection?</button>
+    <div id="demo3" class="collapse bg-light">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div> -->
+</div>
+  

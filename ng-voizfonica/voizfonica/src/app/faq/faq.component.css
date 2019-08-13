@@ -1,0 +1,27 @@
+.jumb
+    {
+        margin:0;
+        background-color:rgba(80, 165, 204, 0.685);
+        padding:3%;
+        text-align:center;  
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+      }
+    
+.jumb1
+{
+    margin:0;
+    padding:4%;
+}
+.btn
+{
+    
+     border:1px solid #117A8B; 
+     box-shadow:2px 2px 10px #117a8b;
+     padding:1%;
+}
+.collapse
+{
+    padding: 2%;
+    text-align:justify;
+    box-shadow:2px 2px 10px grey;
+}

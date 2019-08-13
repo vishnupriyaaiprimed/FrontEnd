@@ -1,0 +1,148 @@
+<div class="container-fluid jumb">
+  <h1 class="display-4">Plans</h1>
+</div>
+<div *ngIf="type == '' || type == 'Postpaid'" class="container-fluid">
+  <div class="text-center smart">
+    <h2>Postpaid Plans</h2>
+  </div>
+  <div class="container text-center">
+    <div class="row" style="background-color:white;">
+      <div *ngFor="let plan of plans1">
+        <div class="col-md-4 pad">
+          <div class="card">
+            <div
+              class="card-header"
+              style="background-color: #007bff; color:white;"
+            >
+              <h3>Voiz {{ plan.amount }}</h3>
+              <h4>Duration:{{ plan.duration }}</h4>
+            </div>
+            <div class="card-body">
+              <table>
+                <tr>
+                  <th>Data</th>
+                  <td>:</td>
+                  <td>{{ plan.data }}</td>
+                </tr>
+                <tr>
+                  <th>Talktime</th>
+                  <td>:</td>
+                  <td>Rs.{{ plan.talktime }}</td>
+                </tr>
+                <tr>
+                  <th>SMS</th>
+                  <td>:</td>
+                  <td>{{ plan.sms }}</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:center;">{{ plan.description }}</td>
+                </tr>
+              </table>
+            </div>
+            <div *ngIf="number != '0'">
+              <div class="card-footer">
+                <a routerLink="/pay"
+                  ><button class="btn btn-primary">Buy</button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="type == '' || type == 'Prepaid'" class="container-fluid">
+  <div class="text-center smart">
+    <h2>Prepaid Plans</h2>
+  </div>
+  <div class="container text-center">
+    <div class="row" style="background-color:white;">
+      <div *ngFor="let plan of plans2">
+        <div class="col-md-4 pad">
+          <div class="card">
+            <div
+              class="card-header"
+              style="background-color: #007bff; color:white;"
+            >
+              <h3>Voiz {{ plan.amount }}</h3>
+              <h4>Duration:{{ plan.duration }}</h4>
+            </div>
+            <div class="card-body">
+              <table>
+                <tr>
+                  <th>Data</th>
+                  <td>:</td>
+                  <td>{{ plan.data }}</td>
+                </tr>
+                <tr>
+                  <th>Talktime</th>
+                  <td>:</td>
+                  <td>Rs.{{ plan.talktime }}</td>
+                </tr>
+                <tr>
+                  <th>SMS</th>
+                  <td>:</td>
+                  <td>{{ plan.sms }}</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:center;">{{ plan.description }}</td>
+                </tr>
+              </table>
+            </div>
+            <div *ngIf="number != '0'">
+              <div class="card-footer">
+                <a routerLink="/pay"
+                  ><button class="btn btn-primary">Buy</button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="type == '' || type == 'Dongle'" class="container-fluid">
+  <div class="text-center smart">
+    <h2>Dongle</h2>
+  </div>
+  <div class="container text-center">
+    <div class="row" style="background-color:white;">
+      <div *ngFor="let plan of plans3">
+        <div class="col-md-4 pad">
+          <div class="card">
+            <div
+              class="card-header"
+              style="background-color: rgba(0,123,255,0.8); color:white;"
+            >
+              <h3>Voiz {{ plan.amount }}</h3>
+              <h4>Duration:{{ plan.duration }}</h4>
+            </div>
+            <div class="card-body">
+              <table>
+                <tr>
+                  <th>Data</th>
+                  <td>:</td>
+                  <td>{{ plan.data }}</td>
+                </tr>
+                <tr>
+                  <td colspan="3" style="text-align:center;">{{ plan.description }}</td>
+                </tr>
+              </table>
+            </div>
+            <div *ngIf="number != '0'">
+              <div class="card-footer">
+                <a routerLink="/pay"
+                  ><button class="btn btn-primary">Buy</button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

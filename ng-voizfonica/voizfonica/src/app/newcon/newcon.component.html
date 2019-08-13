@@ -1,0 +1,150 @@
+<div class="container-fluid jumb">
+  <h1 class="display-4">GET A CONNECTION</h1>
+</div>
+
+<div class="container">
+  <div *ngIf="getDateTime()">
+  </div>
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+
+        <input type="text" name="name1" placeholder="Name" [(ngModel)]="name_var" #name="ngModel" required />
+        <div *ngIf="name.invalid && (name.dirty || name.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required
+          </div>
+
+        </div>
+        <div *ngIf="!name_match(name_var)" class="text-danger">
+          Name can contain only alphabets
+        </div>
+
+        <input type="text" name="address1" placeholder="Address" [(ngModel)]="address_var" #address="ngModel"
+          required />
+        <div *ngIf="address.invalid && (address.dirty || address.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="address.errors.required">
+            Address is required
+          </div>
+
+        </div>
+
+        <input type="number" name="pincode1" placeholder="Pincode" [(ngModel)]="pincode_var" #pincode="ngModel"
+          required />
+        <div *ngIf="pincode.invalid && (pincode.dirty || pincode.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="pincode.errors.required">
+            Pincode is required
+          </div>
+
+        </div>
+        <div *ngIf="(pincode.touched || isBtnClicked) && !pincode_match(pincode_var)" class="text-danger">
+          Enter a valid pincode
+        </div>
+
+
+        <input type="text" name="emailid1" placeholder="E-mail ID" [(ngModel)]="email_var" #email="ngModel" required />
+        <div *ngIf="email.invalid && (email.dirty || email.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="email.errors.required">
+            Email is required
+          </div>
+
+        </div>
+        <div *ngIf="(email.touched || isBtnClicked) && !email_match(email_var)" class="text-danger">
+          Enter a valid email address
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <input type="text" name="aadhar1" placeholder=" Aadhar number" [(ngModel)]="aadhar_var" #aadhar="ngModel"
+          required />
+        <div *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="aadhar.errors.required">
+            Aadhar number is required
+          </div>
+
+        </div>
+        <div *ngIf="(aadhar.touched || isBtnClicked) && !aadhar_match(aadhar_var)" class="text-danger">
+          Enter a valid aadhar number
+        </div>
+
+
+        <select class="txt" name="preposdon1" [(ngModel)]="preposdon_var" #preposdon="ngModel" required>
+          <option [ngValue]="none" disabled>Select an option</option>
+          <option *ngFor="let o of options" [ngValue]="o">{{o}}</option>
+        </select>
+        <div *ngIf="preposdon.invalid && (preposdon.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="preposdon.errors.required">
+            Select an option
+          </div>
+
+        </div>
+
+        <select *ngIf="preposdon_var=='Prepaid'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+          #selectplan="ngModel" required>
+          <option [ngValue]="none" disabled>Select a plan</option>
+          <option *ngFor="let p of plans1" [ngValue]="p">{{p}}</option>
+        </select>
+
+        <select *ngIf="preposdon_var=='Postpaid'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+          #selectplan="ngModel" required>
+          <option [ngValue]="none" disabled>Select a plan</option>
+          <option *ngFor="let p of plans2" [ngValue]="p">{{p}}</option>
+        </select>
+
+        <select *ngIf="preposdon_var=='Dongle'" class="txt" name="selectplan1" [(ngModel)]="selectplan_var"
+          #selectplan="ngModel" required>
+          <option [ngValue]="none" disabled>Select a plan</option>
+          <option *ngFor="let p of plans3" [ngValue]="p">{{p}}</option>
+        </select>
+
+
+        <div *ngIf="selectplan.invalid && (selectplan.touched || isBtnClicked)" class="text-danger">
+
+          <div *ngIf="selectplan.errors.required">
+            Select a plan
+          </div>
+
+        </div>
+
+        <div class="input-group mb-3 kyc">
+          <div class="input-group-prepend">
+            <span class="input-group-text">KYC Appointment</span>
+          </div>
+          <input type="date" class="form-control" name="kycdate1" [(ngModel)]="kycdate_var" #kycdate="ngModel" required
+            style="width:57%" />
+          <div *ngIf="kycdate.invalid && (kycdate.dirty || kycdate.touched || isBtnClicked)" class="text-danger">
+            <div *ngIf="kycdate.errors.required">
+              Pick a Date
+            </div>
+          </div>
+
+          <div *ngIf="(kycdate.touched || isBtnClicked) && !kycdate_match(kycdate_var)" class="text-danger">
+            Pick a valid date
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row text-center">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- <a routerLink="/pay"> -->
+        <input type="button" value="Proceed to Pay" (click)="check_valid()" />
+        <!-- </a> -->
+      </div>
+    </div>
+  </form>
+  <!-- <div *ngIf="sub">
+    Submitted
+  </div> -->
+</div>

@@ -1,0 +1,211 @@
+
+<div *ngIf="amt!='0'">
+
+<div class="container-fluid jumb">
+  <h1 class="display-4">PAYMENT</h1>
+</div>
+<form>
+  <div class="container-fluid text-center">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../assets/images/payment.jpg" class="hide">
+      </div>
+      <div class="col-md-6">
+        <div class="blueoutline">
+          <table>
+            <tr>
+              <td colspan="3">
+                <select class="form-control" name="mode1" [(ngModel)]="mode_var" #mode="ngModel" required>
+                  <option [ngValue]="none" disabled>Select payment mode</option>
+                  <option *ngFor="let m of modes" [ngValue]="m">{{m}}</option>
+                </select>
+
+                <div *ngIf="mode.invalid && (mode.touched || isBtnClicked)" class="text-danger">
+
+                    <div *ngIf="mode.errors.required">
+                      Select a payment mode
+                    </div>
+          
+                  </div>
+
+              </td>
+            </tr>
+            <tr *ngIf="mode_var=='Credit Card'">
+              <th><label>Card Number</label></th>
+              <th class="nopad">:</th>
+              <td><input type="text" name="card1" [(ngModel)]="card_var" #card="ngModel" class="form-control"
+                  placeholder="Valid Card Number" required autofocus style="max-width: 100%;" />
+                <div *ngIf="card.invalid && (card.dirty || card.touched || isBtnClicked)" class="text-danger">
+
+                  <div *ngIf="card.errors.required">
+                    Card number is required
+                  </div>
+                </div>
+                <div *ngIf="(card.touched || isBtnClicked) && !card_match(card_var)" class="text-danger">
+                  Enter a valid card number
+                </div>
+              </td>
+            </tr>
+
+
+            <tr *ngIf="mode_var=='Credit Card'">
+              <th>CVV</th>
+              <th class="nopad">:</th>
+              <td><input type="number" name="cvv1" [(ngModel)]="cvv_var" #cvv="ngModel" class="form-control"
+                  placeholder="CVV" style="max-width: 100%" required />
+                <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched || isBtnClicked)" class="text-danger">
+                  <div *ngIf="cvv.errors.required">
+                    CVV is required
+                  </div>
+                </div>
+                <div *ngIf="(cvv.touched || isBtnClicked) && !cvv_match(cvv_var)" class="text-danger">
+                  Enter a valid cvv
+                </div>
+              </td>
+            </tr>
+
+            <!-- net banking -->
+            <tr *ngIf="mode_var=='Credit Card'">
+              <th>Pin Number</th>
+              <th class="nopad">:</th>
+              <td><input type="text" name="pin1" [(ngModel)]="pin_var" #pin="ngModel" class="form-control"
+                  style="max-width: 100%" required />
+                <div *ngIf="pin.invalid && (pin.dirty || pin.touched || isBtnClicked)" class="text-danger">
+                  <div *ngIf="pin.errors.required">
+                    Pin Number is required
+                  </div>
+                </div>
+                <div *ngIf="(pin.touched || isBtnClicked) && !pin_match(pin_var)" class="text-danger">
+                  Enter a valid pin number
+                </div>
+
+              </td>
+            </tr>
+            <tr *ngIf="mode_var=='Net Banking'">
+              <td colspan="3">
+                <select class="form-control" name="bank1" [(ngModel)]="bank_var" #bank="ngModel" required>
+                  <option [ngValue]="none" disabled>Select Bank</option>
+                  <option *ngFor="let b of banks" [ngValue]="b">{{b}}</option>
+                </select>
+                <div *ngIf="bank.invalid && (bank.touched || isBtnClicked)" class="text-danger">
+
+                    <div *ngIf="bank.errors.required">
+                      Select a bank
+                    </div>
+          
+                  </div>
+              </td>
+            </tr>
+
+
+
+            <tr *ngIf="mode_var=='Net Banking'">
+              <th>Account Number</th>
+              <th class="nopad">:</th>
+              <td><input type="text" name="acc1" [(ngModel)]="acc_var" #acc="ngModel" class=" form-control"
+                  style="max-width: 100%" required />
+                <div *ngIf="acc.invalid && (acc.dirty || acc.touched || isBtnClicked)" class="text-danger">
+                  <div *ngIf="acc.errors.required">
+                    Account Number is required
+                  </div>
+                </div>
+                <div *ngIf="(acc.touched || isBtnClicked) && !acc_match(acc_var)" class="text-danger">
+                  Enter a valid account number
+                </div>
+
+              </td>
+            </tr>
+
+            <tr *ngIf="mode_var=='Net Banking'">
+              <th>Password</th>
+              <th class="nopad">:</th>
+              <td><input type="text" name="pass1" [(ngModel)]="pass_var" #pw="ngModel" class="form-control"
+                  style="max-width: 100%" required />
+                <div *ngIf="pw.invalid && (pw.dirty || pw.touched || isBtnClicked)" class="text-danger">
+
+                  <div *ngIf="pw.errors.required">
+                    Password is required
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Amount</th>
+              <th class="nopad">:</th>
+              <td>Rs.{{amt}}</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <td><button class="btn btn-info " style="min-width:90px;min-height:25% " data-toggle="modal"
+                  data-target="#myModal" (click)="click()">Confirm Payment</button>
+                
+
+                  <div *ngIf="frontend_valid()">
+                      <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-body">
+
+                          <div *ngIf="!backend_valid()" class="alert alert-danger">
+
+                            <div *ngIf="mode_var=='Credit Card'">
+                              <div *ngIf="!creditcard_valid">
+                                Check your credit card number
+                              </div>
+                              <div *ngIf="!cvv_valid">
+                                Your CVV does not match
+                              </div>
+                              <div *ngIf="!pin_valid">
+                                  Your Pin number does not match
+                              </div>
+                              <div *ngIf="!bal_valid">
+                                  Your balance is insufficient
+                              </div>
+                            </div>
+
+                            <div *ngIf="mode_var=='Net Banking'">
+                                <div *ngIf="!acc_valid">
+                                  Check your account number
+                                </div>
+                                <div *ngIf="!pw_valid">
+                                  Your password does not match
+                                </div>
+                                <div *ngIf="!bal_valid">
+                                    Your balance is insufficient
+                                </div>
+                              </div>
+
+                          </div>
+
+                          <div *ngIf="backend_valid()">
+                            <div style="font-size:20pt;padding-bottom:2%">Payment Successful</div>
+                            <br>
+                            <a routerLink=''><button type="button" class="btn btn-info"
+                                data-dismiss="modal" (click)="change()">Close</button>
+                            </a>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div>
+
+<div *ngIf="amt=='0'" class="container text-center display-4" style="margin-top:12%">
+  Page not available !
+</div>

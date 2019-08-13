@@ -1,0 +1,101 @@
+<div *ngIf="number!='0'">
+
+    <div class="container-fluid jumb">
+        <h1 class="display-4" style="text-align:center">BILL INQUIRY</h1>
+    </div>
+    <!--comment1-->
+    <div>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Bill Date</th>
+                <th>Pay by Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Print</th>
+            </tr>
+            <tr *ngFor="let b of bill">
+                <td></td>
+                <td></td>
+                <td>{{ b.substring(21, 31) }}</td>
+                <td>{{ b.substring(57, 67) }}</td>
+                <td>{{ b.substring(68, 74) }}</td>
+                <td *ngIf="b.substring(77, 78) == 'n'">
+                    <button type="button" class="btn btn-info" data-dismiss="modal"
+                        (click)="paymentVar(b.substring(68, 74))" routerLink="/pay">
+                        Pay
+                    </button>
+                </td>
+                <td *ngIf="b.substring(77, 78) == 'p'">Paid</td>
+                <td *ngIf="b.substring(77, 78) == 'n'">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
+                        (click)="func(b.substring(75, 76))" disabled>
+                        Click Here
+                    </button>
+                </td>
+                <td *ngIf="b.substring(77, 78) == 'p'">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
+                        (click)="func(b.substring(75, 76))">
+                        Click Here
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="dvContainer">
+                        <div class="container text-center">
+                            <table align="center" border="1px solid black">
+                                <tr>
+                                    <th>VoizFonica Number</th>
+                                    <td>{{ result.substring(1, 11) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bill Number</th>
+                                    <td>{{ result.substring(12, 20) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bill Date</th>
+                                    <td>{{ result.substring(21, 31) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bill period</th>
+                                    <td>{{ result.substring(32, 56) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pay by Date</th>
+                                    <td>{{ result.substring(57, 67) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bill Amount</th>
+                                    <td>{{ result.substring(68, 74) }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" id="btnPrint">
+                        Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="number=='0'" class="container text-center display-4" style="margin-top:12%">
+    Please login to view this page
+</div>

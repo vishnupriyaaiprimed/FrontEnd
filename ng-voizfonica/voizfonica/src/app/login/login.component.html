@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div id="formContent">
+    <div class="">
+      <h3>Voizfonica</h3>
+    </div>
+
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+    <form>
+      <!-- <span class="txt">+91</span> -->
+      <input type="text" placeholder="Phone Number / Username" name="poru1" [(ngModel)]="poru_var" #poru="ngModel" required/>
+
+      <div *ngIf="poru.invalid && (poru.dirty || poru.touched || isBtnClicked)" class="text-danger">
+
+        <div *ngIf="poru.errors.required">
+         Phone number / Username is required
+        </div>
+
+      </div>
+      <div *ngIf="(poru.touched || isBtnClicked) && !phone_or_username_match(poru_var)" class="text-danger">
+        Enter a valid phone number / username
+      </div>
+
+      <input type="password" placeholder="Password" name="pw1" [(ngModel)]="pw_var" #pw="ngModel" required/>
+
+      <div *ngIf="pw.invalid && (pw.dirty || pw.touched || isBtnClicked)" class="text-danger">
+
+        <div *ngIf="pw.errors.required">
+          Password is required
+        </div>
+
+      </div>
+      
+      <br /><br />
+
+      <!-- <a routerLink="/prepaid"> -->
+        <input type="button" class="btn" (click)="check()" value="Login" id="loginBtn"/>
+        <div *ngIf="!isUser" class="alert alert-danger">
+          You do not have an online account<br>Please sign up
+        </div>
+        <div *ngIf="isUser && !passCrct" class="alert alert-danger">
+          Password is wrong
+        </div>
+      <!-- </a> -->
+
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div style="font-size:20pt;padding-bottom:2%">
+                Enter your Phone number : <input type="text" />
+              </div>
+              <br />
+              <a routerLink="/login">
+                <button type="button" class="btn" data-dismiss="modal" style="color: white">
+                  OK
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row" style="font-size:9pt;padding-bottom:4%">
+      <div class="col anchor">
+        <a routerLink="/createaccount" style="padding: 9%;">Sign Up</a>
+      </div>
+      <div class="col anchor">
+        <a href="" style="padding: 9%;" data-toggle="modal" data-target="#myModal">Forgot Password ?</a>
+      </div>
+    </div>
+  </div>
+</div>

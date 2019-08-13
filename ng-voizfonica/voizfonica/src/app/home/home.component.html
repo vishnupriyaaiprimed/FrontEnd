@@ -1,0 +1,100 @@
+<table>
+  <tr height="20%">
+    <td width="17%" class="text-dark display-3">Logo</td>
+    <td
+      class="text-center display-4 container-fluid"
+      style="background: #E9ECEF"
+    >
+      VoizFonica
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table class="vertical" width="100%" height="100%">
+        <tr>
+          <td class="align-middle">
+            <a routerLink="/login">
+              <button class="btn btn-secondary">
+                My Account /<br />Create Account
+              </button>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle">
+            <a routerLink="/plans">
+              <button class="btn btn-secondary">Plans Available</button>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle">
+            <a routerLink="/rorb">
+              <button class="btn btn-secondary">Recharge / Bill Payment</button>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle">
+            <a routerLink="/newcon">
+              <button class="btn btn-secondary">Get a new Connection</button>
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle">
+            <a routerLink="/faq">
+              <button class="btn btn-secondary">Help & Support</button>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td>
+      <table>
+        <tr height="13%">
+          <td>
+            <table class="table table-dark table-bordered options">
+              <tr>
+                <td width="33.33%">
+                  <button class="btn btn-link" (click)="changeContent('home')">
+                    Home
+                  </button>
+                </td>
+
+                <td width="33.33%">
+                  <button class="btn btn-link" (click)="changeContent('about')">
+                    About Us
+                  </button>
+                </td>
+
+                <td width="33.33%">
+                  <button
+                    class="btn btn-link"
+                    (click)="changeContent('contact')"
+                  >
+                    Contact Us
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="container text-left align-top" style="padding:5%">
+            <div *ngIf="home">Home Content</div>
+            <div *ngIf="about">About Content</div>
+            <div *ngIf="contact">Contact Content</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

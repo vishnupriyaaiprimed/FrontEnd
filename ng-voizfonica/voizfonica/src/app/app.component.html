@@ -1,0 +1,93 @@
+<div class="container" style="margin-bottom:56px;">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <a class="navbar-brand" routerLink='/home'>
+      <img src="../assets/images/logo_blue.png" width="80px" height="30px" alt="..." style="margin-left:20px" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      style="text-align:center;">
+  
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="liveNum()" class="nav-item text-secondary">
+          hiiiiii
+        </li>
+        <li class="nav-item option">
+          <a
+            class="nav-link"
+            routerLink="/plans"
+            >Plans Available</a
+          >
+        </li>
+        <li class="nav-item text-secondary">
+          hiiiiiiiiiiiii
+        </li>
+        <li class="nav-item option">
+          <a
+            class="nav-link"
+            routerLink="/rorb"
+            >Recharge / Bill Payment</a
+          >
+        </li>
+        <li class="nav-item text-secondary">
+          hiiiiiiiiiiiii
+        </li>
+        <li class="nav-item option">
+          <a
+            class="nav-link"
+            routerLink="/newcon"
+            >Get a Connection</a
+          >
+        </li>
+        <li class="nav-item text-secondary">
+          hiiiiiiiiiiiii
+        </li>
+        <li class="nav-item option">
+          <a
+            class="nav-link"
+            routerLink="/faq"
+            >Help and Support</a
+          >
+        </li>
+        <li class="nav-item text-secondary">
+          hiiiiiiiiiiiii
+        </li>
+
+
+        <li *ngIf="num=='0'" class="nav-item option">
+          <a class="nav-link" routerLink="/login">Login / Sign Up</a>
+        </li>
+
+
+        <li *ngIf="num!='0'" class="nav-item option">
+          <a class="nav-link" routerLink="/account">My Account</a>
+        </li>
+        <li *ngIf="num!='0'" class="nav-item text-secondary">
+          hiiiiiiiiiiiii
+        </li>
+        <li *ngIf="num!='0'" class="nav-item option">
+          <a class="nav-link" (click)="logout()" routerLink="/home">Logout</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<div role="main" *ngIf="fn()" class="full">
+  <app-home1></app-home1>
+</div>
+<router-outlet></router-outlet>
