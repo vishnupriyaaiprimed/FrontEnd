@@ -73,6 +73,26 @@ export class ApiService {
     // console.log(localStorage.getItem("prevpage"));
   }
 
+  private plan1 = "";
+  getPlan1() {
+    // console.log(localStorage.getItem("prevpage"));
+    return localStorage.getItem("plan1");
+  }
+  changePlan1(p) {
+    this.plan1 = p;
+    localStorage.setItem("plan1", this.plan1);
+    // console.log(localStorage.getItem("prevpage"));
+  }
+
+  private Duration = "";
+  getDuration() {
+    return localStorage.getItem("Duration");
+  }
+  changeDuration(p) {
+    this.Duration = p;
+    localStorage.setItem("Duration", this.Duration);
+  }
+
   private plan='';
   getPlan()
   {
@@ -185,6 +205,62 @@ export class ApiService {
       dataUsage: det.dataUsage,
       smsUsage: det.smsUsage,
       bill: bill
+    };
+    return this.http.put<any>(
+      this.baseUrl + "customersbynum/" + det.phone_num + "/",
+      details,
+      {
+        headers: this.httpHeaders
+      }
+    );
+  }
+
+  updateCustomerPack(det, plan, dur): Observable<any> {
+    const details = {
+      name: det.name,
+      address: det.address,
+      pincode: det.pincode,
+      aadhar: det.aadhar,
+      aadhar_verified: det.aadhar_verified,
+      email: det.email,
+      phone_num: det.phone_num,
+      type1: det.type1,
+      plan: plan,
+      kyc_date: det.kyc_date,
+      balance: det.balance,
+      expiriesIn: dur,
+      callUsage: det.callUsage,
+      dataUsage: det.dataUsage,
+      smsUsage: det.smsUsage,
+      bill: det.bill
+    };
+    return this.http.put<any>(
+      this.baseUrl + "customersbynum/" + det.phone_num + "/",
+      details,
+      {
+        headers: this.httpHeaders
+      }
+    );
+  }
+
+  updateCustomerBal(det, bal): Observable<any> {
+    const details = {
+      name: det.name,
+      address: det.address,
+      pincode: det.pincode,
+      aadhar: det.aadhar,
+      aadhar_verified: det.aadhar_verified,
+      email: det.email,
+      phone_num: det.phone_num,
+      type1: det.type1,
+      plan: det.plan,
+      kyc_date: det.kyc_date,
+      balance: bal,
+      expiriesIn: det.expiriesIn,
+      callUsage: det.callUsage,
+      dataUsage: det.dataUsage,
+      smsUsage: det.smsUsage,
+      bill: det.bill
     };
     return this.http.put<any>(
       this.baseUrl + "customersbynum/" + det.phone_num + "/",

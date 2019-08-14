@@ -38,6 +38,7 @@ html {
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
+  height: 60%;
 }
 
 .btn {

@@ -1,8 +1,8 @@
 <div class="container" style="margin-bottom:56px;">
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a class="navbar-brand" routerLink='/home'>
+    <!-- <a class="navbar-brand" routerLink='/home'> -->
       <img src="../assets/images/logo_blue.png" width="80px" height="30px" alt="..." style="margin-left:20px" />
-    </a>
+    <!-- </a> -->
     <button
       class="navbar-toggler"
       type="button"
@@ -22,7 +22,17 @@
   
       <ul class="navbar-nav mr-auto">
         <li *ngIf="liveNum()" class="nav-item text-secondary">
-          hiiiiii
+          hiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+        </li>
+        <li class="nav-item option">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item text-secondary">
+          hiiiiiiiiiiiiiiiiiiiii
         </li>
         <li class="nav-item option">
           <a
@@ -32,9 +42,9 @@
           >
         </li>
         <li class="nav-item text-secondary">
-          hiiiiiiiiiiiii
+          hiiiiiiiiiiiiiiiiiiiii
         </li>
-        <li class="nav-item option">
+        <!-- <li class="nav-item option">
           <a
             class="nav-link"
             routerLink="/rorb"
@@ -42,8 +52,8 @@
           >
         </li>
         <li class="nav-item text-secondary">
-          hiiiiiiiiiiiii
-        </li>
+          hiiiiiiiiiiiiiiiiiiiii
+        </li> -->
         <li class="nav-item option">
           <a
             class="nav-link"
@@ -52,7 +62,7 @@
           >
         </li>
         <li class="nav-item text-secondary">
-          hiiiiiiiiiiiii
+          hiiiiiiiiiiiiiiiiiiiii
         </li>
         <li class="nav-item option">
           <a
@@ -62,7 +72,7 @@
           >
         </li>
         <li class="nav-item text-secondary">
-          hiiiiiiiiiiiii
+          hiiiiiiiiiiiiiiiiiiiii
         </li>
 
 
@@ -75,7 +85,7 @@
           <a class="nav-link" routerLink="/account">My Account</a>
         </li>
         <li *ngIf="num!='0'" class="nav-item text-secondary">
-          hiiiiiiiiiiiii
+          hiiiiiiiiiiiiiiiiiiiii
         </li>
         <li *ngIf="num!='0'" class="nav-item option">
           <a class="nav-link" (click)="logout()" routerLink="/home">Logout</a>

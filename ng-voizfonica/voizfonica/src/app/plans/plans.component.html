@@ -42,7 +42,7 @@
             <div *ngIf="number != '0'">
               <div class="card-footer">
                 <a routerLink="/pay"
-                  ><button class="btn btn-primary">Buy</button></a
+                  ><button class="btn btn-primary"(click)="func(plan.plan_name,plan.duration)" >Buy</button></a
                 >
               </div>
             </div>
@@ -94,7 +94,7 @@
             <div *ngIf="number != '0'">
               <div class="card-footer">
                 <a routerLink="/pay"
-                  ><button class="btn btn-primary">Buy</button></a
+                  ><button class="btn btn-primary" (click)="func(plan.plan_name,plan.duration)" >Buy</button></a
                 >
               </div>
             </div>
@@ -136,7 +136,7 @@
             <div *ngIf="number != '0'">
               <div class="card-footer">
                 <a routerLink="/pay"
-                  ><button class="btn btn-primary">Buy</button></a
+                  ><button class="btn btn-primary" (click)="func(plan.plan_name,plan.duration)" >Buy</button></a
                 >
               </div>
             </div>

@@ -1,39 +1,47 @@
-<div *ngIf="num!='0'">
+<div *ngIf="number!='0'">
   
   <div class="container-fluid jumb">
-        <h1 class="display-4">BILL PAYMENT</h1>
-    </div>
-    <form>
-      <div class="container-fluid text-center"> 
-        <div class="row"> 
-          <div class="col-md-4">
-            <img src="../assets/images/pay.png" class="hide">
-          </div>
-          <div class="col-md-8">
-            <div class="blueoutline">
-                <table>
-                    <tr>
-                        <th>Mobile Number</th>
-                        <th class="nopad">:</th>
-                        <td><input type="text" name="name" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <th>Your bill amount is</th>
-                        <th class="nopad">:</th>
-                        <td>Rs.123</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><a routerLink="/pay"><button class="btn btn-info">Proceed to Pay</button></a></td>
-                    </tr>
-                </table>
-            </div>
+    <h1 class="display-4">BILL PAYMENT</h1>
+  </div>
+  <form>
+    <div class="container-fluid text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="../assets/images/pay.png" class="hide" />
+        </div>
+        <div class="col-md-8">
+          <div class="blueoutline">
+            <table>
+              <tr>
+                <th>Mobile Number</th>
+                <th class="nopad">:</th>
+                <td>{{ phone }}</td>
+              </tr>
+              <tr *ngIf="bill2.substring(77, 78) == 'n'">
+                <th>Your bill amount is</th>
+                <th class="nopad">:</th>
+                <td>{{ amt }}</td>
+              </tr>
+              <tr *ngIf="bill2.substring(77, 78) == 'p'" colspan="3">
+                <th></th>
+                <th>Bill paid</th>
+                <th></th>
+              </tr>
+              <tr *ngIf="bill2.substring(77, 78) == 'n'">
+                <td colspan="3">
+                  <a routerLink="/pay"
+                    ><button class="btn btn-info" (click)="func()">
+                      Proceed to Pay
+                    </button></a
+                  >
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-    </form>
-
-  </div>
-
-  <div *ngIf="num=='0'" class="container text-center display-4" style="margin-top:12%">
+    </div>
+  </form>
+  <div *ngIf="number=='0'" class="container text-center display-4" style="margin-top:12%">
     Please login to view this page
   </div>

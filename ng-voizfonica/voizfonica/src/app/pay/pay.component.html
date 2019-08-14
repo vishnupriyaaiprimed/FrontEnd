@@ -51,7 +51,7 @@
             <tr *ngIf="mode_var=='Credit Card'">
               <th>CVV</th>
               <th class="nopad">:</th>
-              <td><input type="number" name="cvv1" [(ngModel)]="cvv_var" #cvv="ngModel" class="form-control"
+              <td><input type="password" name="cvv1" [(ngModel)]="cvv_var" #cvv="ngModel" class="form-control"
                   placeholder="CVV" style="max-width: 100%" required />
                 <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched || isBtnClicked)" class="text-danger">
                   <div *ngIf="cvv.errors.required">
@@ -68,7 +68,7 @@
             <tr *ngIf="mode_var=='Credit Card'">
               <th>Pin Number</th>
               <th class="nopad">:</th>
-              <td><input type="text" name="pin1" [(ngModel)]="pin_var" #pin="ngModel" class="form-control"
+              <td><input type="password" name="pin1" [(ngModel)]="pin_var" #pin="ngModel" class="form-control"
                   style="max-width: 100%" required />
                 <div *ngIf="pin.invalid && (pin.dirty || pin.touched || isBtnClicked)" class="text-danger">
                   <div *ngIf="pin.errors.required">
@@ -119,7 +119,7 @@
             <tr *ngIf="mode_var=='Net Banking'">
               <th>Password</th>
               <th class="nopad">:</th>
-              <td><input type="text" name="pass1" [(ngModel)]="pass_var" #pw="ngModel" class="form-control"
+              <td><input type="password" name="pass1" [(ngModel)]="pass_var" #pw="ngModel" class="form-control"
                   style="max-width: 100%" required />
                 <div *ngIf="pw.invalid && (pw.dirty || pw.touched || isBtnClicked)" class="text-danger">
 
@@ -184,7 +184,7 @@
                             <div style="font-size:20pt;padding-bottom:2%">Payment Successful</div>
                             <br>
                             <a routerLink=''><button type="button" class="btn btn-info"
-                                data-dismiss="modal" (click)="change()">Close</button>
+                                data-dismiss="modal" >Close</button>
                             </a>
                           </div>
 

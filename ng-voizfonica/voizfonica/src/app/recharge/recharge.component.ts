@@ -16,6 +16,7 @@ export class RechargeComponent implements OnInit {
 
    func() {
     this.apiService.changeAmt(this.amount);
+    this.apiService.changePage("recharge");
     console.log(this.amount);
   }
 

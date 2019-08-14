@@ -5,6 +5,9 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-horizontal">
+              <div class="card-body" style="text-align: left;">
+                  <img src="./assets/images/prof.png" width="120px" height="120px">
+                </div>
             <div class="card-body" style="text-align: left;">
               <label>
                 <h5>{{ cus.name }}</h5>
@@ -15,9 +18,8 @@
               <label>
                 <h5>{{ cus.type1 }}</h5>
               </label>
-
             </div>
-            <div class="card-body" style="padding: 35px;">
+            <div *ngIf="cus.type1=='Prepaid'" class="card-body" style="padding: 35px;background: white">
               <label>
                 <h4>Balance</h4>
               </label><br />
@@ -68,7 +70,7 @@
           <font size="5">Expires in : </font>
           <font size="5"><I>{{ cus.expiriesIn }}</I></font>
 
-          <div *ngIf="cus.type1 === 'Postpaid'">
+          <div *ngIf="cus.type1 != 'Prepaid'">
             <div class="row">
               <div class="col-md-6">
                 <a routerLink="/billpay">
@@ -88,7 +90,7 @@
       </div>
       <div class="col-md-8">
         <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
+          <div *ngIf="cus.type1!='Dongle'" class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><button
@@ -151,7 +153,7 @@
               </div>
             </div>
           </div>
-          <div class="panel panel-default">
+          <div *ngIf="cus.type1!='Dongle'" class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><button

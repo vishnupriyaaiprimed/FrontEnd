@@ -13,6 +13,9 @@ export class PlansComponent implements OnInit {
   plans3 = [];
   number: string;
   type: string;
+  var1: string;
+  var2: string;
+  currentplan: string;
   constructor(private api: ApiService) {
     // this.getPlans();
     this.number = this.api.getNum();
@@ -65,6 +68,18 @@ export class PlansComponent implements OnInit {
       }
     );
   };
+
+  func(var1, var2) {
+    this.api.changePage("plans");
+    this.api.changePlan1(var1);
+    var amt=var1.substring(5);
+    this.api.changeAmt(amt);
+    this.api.changeDuration(var2);
+    console.log(this.api.getPlan());
+    console.log(this.api.getPage());
+    console.log(this.api.getDuration());
+  }
+
 
   ngOnInit() {}
 }

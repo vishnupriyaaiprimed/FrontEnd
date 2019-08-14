@@ -8,9 +8,30 @@ import { ApiService } from '../api.service';
 })
 export class BillpayComponent implements OnInit {
   
-  num='0';
-  constructor(private apiService:ApiService) {this.num=this.apiService.getNum(); }
+  bill = [];
+  bill2: any;
+  number: string;
+  amt: string;
+  phone: string;
+  constructor(private apiservice: ApiService) {
+    this.number = this.apiservice.getNum();
+    this.apiservice.checkIsCustomer(this.number).subscribe(response => {
+      this.bill = response.bill.split(";");
+      this.bill2 = response.bill;
+      console.log(this.bill);
+      this.amt = this.bill[0].substring(68, 74);
+      this.phone = this.bill[0].substring(1, 11);
+    });
+
+    }
+
+
   
+  func() {
+    this.apiservice.changeAmt(this.amt);
+    this.apiservice.changePage("billpay");
+    console.log(this.apiservice.getPage());
+  }
 
   ngOnInit() {
   }

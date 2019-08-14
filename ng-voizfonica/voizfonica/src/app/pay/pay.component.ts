@@ -25,6 +25,9 @@ export class PayComponent implements OnInit {
   bill: any;
   det: any;
   plan:any;
+  plan1:any;
+  duration:string;
+  balance:string;
 
   credit : any;
   bank : any;
@@ -42,24 +45,32 @@ export class PayComponent implements OnInit {
 
   constructor(private apiService:ApiService) { 
     this.amt = this.apiService.getAmt();
+    if(this.amt.includes("Rs."))
+      this.amt=this.amt.substring(3);
     console.log(this.amt);
     this.page = this.apiService.getPage();
     //console.log(this.page);
     this.num = this.apiService.getNum();
     //console.log(this.num);
+    console.log(this.apiService.getPlan1());
+    this.apiService.checkIsCustomer(this.num).subscribe(response => {
+      this.bill = response.bill;
+      this.det = response;
+    });
+    this.plan1 = this.apiService.getPlan1();
+    this.duration=this.apiService.getDuration();
   }
 
   change() {
     if (this.page == "billpay") {
-      this.apiService.checkIsCustomer(this.num).subscribe(response => {
-        this.bill = response.bill;
-        this.det = response;
+      
         this.bill = this.bill.substring(0, 77) + "p" + this.bill.substring(78);
         this.apiService
           .updateCustomersBill(this.det, this.bill)
-          .subscribe(res => console.log(res));
+          .subscribe(res => (console.log(res),    this.apiService.changeAmt('0')));
+          
         // console.log(this.bill);
-      });
+      
     }
     else if(this.page=='newcon')
     {
@@ -67,10 +78,25 @@ export class PayComponent implements OnInit {
       console.log(this.det);
       
       //this.apiService.addToCustomers(this.det).subscribe(data=>(true));
-      
+      this.apiService.changeAmt('0');
     }
-    this.apiService.changeAmt('0');
+    else if(this.page=='plans')
+    {
+      this.update();
+      this.apiService.changePlan("0");
+      this.apiService.changeAmt('0');
+    }
+    else if(this.page=='recharge')
+    {
+      this.balance = parseFloat(this.det.balance)+parseFloat(this.amt);
+      console.log(this.balance);
+      
+      this.apiService.updateCustomerBal(this.det,this.balance ).subscribe(res => (console.log(res),    this.apiService.changeAmt('0')))
+    
+    }
+
   }
+
 
   ngOnInit() {
   }
@@ -128,6 +154,16 @@ export class PayComponent implements OnInit {
     this.pw_valid=true;
 
     this.check_valid();
+    
+  }
+
+  update() {
+    console.log(this.plan);
+    console.log(this.det);
+
+    this.apiService
+      .updateCustomerPack(this.det, this.plan1,this.duration   )
+      .subscribe(res => console.log(res));
   }
 
 
@@ -258,7 +294,8 @@ export class PayComponent implements OnInit {
       if(parseFloat(this.amt)<=parseFloat(this.credit.balance))
       {
         this.bal_valid=true;
-        this.apiService.changeCredit(this.credit.id,this.credit.cardnumber,this.credit.cvv,this.credit.pinnumber,parseFloat(this.credit.balance)-parseFloat(this.amt)).subscribe(data=>(true));
+        this.apiService.changeCredit(this.credit.id,this.credit.cardnumber,this.credit.cvv,this.credit.pinnumber,parseFloat(this.credit.balance)-parseFloat(this.amt)).subscribe(data=>this.change());
+      
       }
       else
         this.bal_valid=false;
@@ -274,7 +311,7 @@ export class PayComponent implements OnInit {
       if(parseFloat(this.amt)<=parseFloat(this.bank.balance))
       {
         this.bal_valid=true;
-        this.apiService.changeBank(b,this.bank.id,this.bank.accountnumber,this.bank.password,parseFloat(this.bank.balance)-parseFloat(this.amt)).subscribe(data=>(true))
+        this.apiService.changeBank(b,this.bank.id,this.bank.accountnumber,this.bank.password,parseFloat(this.bank.balance)-parseFloat(this.amt)).subscribe(data=>this.change())
       }
       else
         this.bal_valid=false;
