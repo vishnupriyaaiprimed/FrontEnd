@@ -27,7 +27,7 @@ export class PayComponent implements OnInit {
   plan:any;
   plan1:any;
   duration:string;
-  balance:string;
+  balance:number;
 
   credit : any;
   bank : any;
