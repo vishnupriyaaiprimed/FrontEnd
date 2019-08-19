@@ -45,6 +45,15 @@ export class ApiService {
     // console.log(localStorage.getItem("typeOfCustomer"));
   }
 
+  sendPassword(emailvalue, passwordvalue):Observable<any>{
+    const value = { email : emailvalue , password : passwordvalue };
+    return this.http.post<any>(this.baseUrl+"sendpassword/",value);
+  }
+
+  sendMail(emailval):Observable<any>{
+    const value = { email : emailval };
+    return this.http.post<any>(this.baseUrl+"sendmail/",value);
+  }
 
   private amt='0';
   getAmt()

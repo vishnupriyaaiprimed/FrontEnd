@@ -177,7 +177,7 @@ export class NewconComponent implements OnInit {
     ));
     
     this.apiService.addToCustomers(this.name_var,this.address_var,this.pincode_var,this.email_var,this.aadhar_var_short,this.preposdon_var,this.selectplan_var.plan_name,this.kycdate_var).subscribe(data=>(console.log(data)));
-    
+    this.apiService.sendMail(this.email_var).subscribe(data => console.log(data));
   }
 
   getDateTime() {

@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   count = 0;
-
+  num:string;
   poru_var: string;
   pw_var: string;
   user = { username: ''};
   preposdon = { type1: '' };
+  numberval:string;
+  passchange:any;
+  email:any;
 
   isBtnClicked = false;
 
@@ -26,6 +29,21 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  forget(){
+    this.apiService.checkUserPresent(this.num).subscribe(res => {
+      this.passchange = res;
+      this.forget1();
+      });
+  }
+
+  forget1()
+  {
+    this.apiService.checkIsCustomer(this.num).subscribe(res=>{
+      this.email=res.email;
+      this.apiService.sendPassword(this.email,this.passchange.email.substring(0,this.passchange.email.length-6)).subscribe(data => {console.log(data)});
+    });
+  }
 
   check() {
     this.isBtnClicked = true;
@@ -92,6 +110,7 @@ export class LoginComponent implements OnInit {
     //   this.router.navigate(['/dongle']);      
   }
 
+  
   phone_or_username_match(num): boolean {
     if (num != null && num != '') {
       var str: string;

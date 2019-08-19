@@ -39,25 +39,26 @@
           Password is wrong
         </div>
       <!-- </a> -->
-
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div style="font-size:20pt;padding-bottom:2%">
-                Enter your Phone number : <input type="text" />
-              </div>
-              <br />
-              <a routerLink="/login">
-                <button type="button" class="btn" data-dismiss="modal" style="color: white">
-                  OK
-                </button>
-              </a>
+    </form>
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form>
+            <div style="font-size:20pt;padding-bottom:2%">
+              Enter your Phone number : <input type="text" name="num1" [(ngModel)]="num" required/>
             </div>
+            <br />
+            <a routerLink="/login">
+              <button type="button" class="btn" (click)="forget()" data-dismiss="modal" style="color: white">
+                OK
+              </button>
+            </a>
+          </form>
           </div>
         </div>
       </div>
-    </form>
+    </div>
 
     <div class="row" style="font-size:9pt;padding-bottom:4%">
       <div class="col anchor">
